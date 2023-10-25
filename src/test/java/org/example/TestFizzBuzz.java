@@ -17,20 +17,21 @@ public class TestFizzBuzz {
     private final PrintStream originalErr = System.err;
 
     @BeforeEach
-    public void setUpStreams() {
+    public void setUpSystemOutStreams() {
         System.setOut(new PrintStream(outContent));
         System.setErr(new PrintStream(errContent));
     }
 
     @AfterEach
-    public void restoreStreams() {
+    public void restoreSystemOutStreams() {
         System.setOut(originalOut);
         System.setErr(originalErr);
     }
 
     @Test
-    public void testPositiveNumber() {
+    public void inputFifteenShouldPrintAllPossibleFizzBuzzScenarios() {
         FizzBuzz.fizzBuzz(15);
+
         String expected = "1" + System.lineSeparator() +
                 "2" + System.lineSeparator() +
                 "Fizz" + System.lineSeparator() +
@@ -47,28 +48,39 @@ public class TestFizzBuzz {
                 "14" + System.lineSeparator() +
                 "FizzBuzz" + System.lineSeparator();
 
-        assertEquals(expected, outContent.toString());
+        String actual = outContent.toString();
+
+        assertEquals(expected, actual);
     }
 
     @Test
-    public void testOne() {
+    public void inputOneShouldPrintOne() {
         FizzBuzz.fizzBuzz(1);
+
         String expected = "1" + System.lineSeparator();
-        assertEquals(expected, outContent.toString());
+        String actual = outContent.toString();
+
+        assertEquals(expected, actual);
     }
 
     @Test
-    public void testNegativeNumber() {
+    public void inputNegativeNumberShouldPrintNothing() {
         FizzBuzz.fizzBuzz(-20);
+
         String expected = "";
-        assertEquals(expected, outContent.toString());
+        String actual = outContent.toString();
+
+        assertEquals(expected, actual);
     }
 
     @Test
-    public void testZero() {
+    public void inputZeroShouldPrintNothing() {
         FizzBuzz.fizzBuzz(0);
+
         String expected = "";
-        assertEquals(expected, outContent.toString());
+        String actual = outContent.toString();
+
+        assertEquals(expected, actual);
     }
 
 }
