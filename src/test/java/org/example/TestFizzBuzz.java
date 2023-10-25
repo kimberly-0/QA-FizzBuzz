@@ -50,4 +50,11 @@ public class TestFizzBuzz {
         assertEquals(expected, outContent.toString());
     }
 
+    @Test
+    public void testOne() {
+        FizzBuzz.fizzBuzz(1);
+        String expected = "1" + System.lineSeparator();
+        assertEquals(expected, outContent.toString());
+    }
+
 }
