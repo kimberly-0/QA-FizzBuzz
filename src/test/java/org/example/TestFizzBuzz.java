@@ -57,4 +57,18 @@ public class TestFizzBuzz {
         assertEquals(expected, outContent.toString());
     }
 
+    @Test
+    public void testNegativeNumber() {
+        FizzBuzz.fizzBuzz(-20);
+        String expected = "";
+        assertEquals(expected, outContent.toString());
+    }
+
+    @Test
+    public void testZero() {
+        FizzBuzz.fizzBuzz(0);
+        String expected = "";
+        assertEquals(expected, outContent.toString());
+    }
+
 }
